@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Clientes | CoffeeShop</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">CoffeeShop</div>
+        <ul>
+            <li><a href="{{url_for('templates', filename='index.html')}}">Inicio</a></li>
+            <li><a href="{{url_for('/clientes/crear')}}">Nuevo</a></li>
+            <li><a href="{{url_for('/clientes/<int:id>/editar')}}">Editar</a></li>
+        </ul>
+    </nav>
+
+    <h2>Clientes </h2>
+    <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cliente in clientes %}
+          <tr>
+            <td>{{ cliente.id }}</td>
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.apellido }}</td>
+            <td>{{ cliente.email }}</td>
+            <td>{{ cliente.telefono }}</td>
+            <td>{{ cliente.direccion }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    <a href="nuevo_cliente.html">Nuevo Cliente</a>
+</body>
+</html>

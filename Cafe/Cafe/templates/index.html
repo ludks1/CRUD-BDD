@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage | {{ title }}</title>
+</head>
+<body>
+  <nav>
+    <div class="logo">{{ app_name }}</div>
+    <ul>
+      <li><a href="{{url_for('home')}}">Inicio</a></li>
+      <li><a href="{{url_for('productos')}}">Productos</a></li>
+      <li><a href="{{url_for('clientes')}}">Clientes</a></li>
+      <li><a href="{{url_for('pedidos')}}">Pedidos</a></li>
+    </ul>
+  </nav>
+  <div class="content">
+    <div class="about">
+      <h2>TU CAFÉ DE TODAS LAS MAÑANAS</h2>
+      <p>Empieza tu dia disfrutando uno de los mejores placeres</p>
+      <a href="nuevo_pedido.html"><Button class="BotonOrdena">Ordenar Ahora</Button></a>
+    </div>
+  </div>
+</body>
+</html>
