@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <link rel="preload" href="CRUD-BDD-master\Cafe\Cafe\css\css.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Editar cliente  | CoffeeShop</title>
 </head>
@@ -10,9 +10,9 @@
     <nav>
         <div class="logo">CoffeeShop</div>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="clientes.html">Clientes</a></li>
-            <li><a href="nuevo_cliente.html">Nuevo</a></li>
+            <li><a href="{{url_for('home')}}">Inicio</a></li>
+            <li><a href="{{url_for('clientes')}}">Clientes</a></li>
+            <li><a href="{{url_for('nuevo_cliente')}}">Nuevo</a></li>
         </ul>
     </nav>
   <h2>Editar cliente </h2>

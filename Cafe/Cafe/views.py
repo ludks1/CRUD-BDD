@@ -112,7 +112,7 @@ def crear_pedido():
     return redirect(url_for('pedidos.pedidos'))
 
 
-@app.route('/pedidos/<int:id>/editar')
+@app.route('/pedidos/<int:id>/editar', methods=['GET', 'POST'])
 def editar_pedido(id):
     pedido = Pedido.query.get_or_404(id)
     clientes = Cliente.query.all()
@@ -162,7 +162,7 @@ def nuevo_producto():
     return render_template('nuevo_producto.html')
 
 
-@app.route('/productos/crear', methods=['POST'])
+@app.route('/productos/crear', methods=['GET', 'POST'])
 def crear_producto():
     nombre = request.form['nombre']
     descripcion = request.form['descripcion']

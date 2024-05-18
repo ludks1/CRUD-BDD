@@ -2,8 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <link rel="preload" href="C:\Users\jonat\Downloads\CRUD-BDD-master\CRUD-BDD-master\Cafe\Cafe\css\css.css">
-    <link rel="stylesheet" href="C:\Users\jonat\Downloads\CRUD-BDD-master\CRUD-BDD-master\Cafe\Cafe\css\css.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nuevo cliente  | CoffeeShop</title>
 </head>
@@ -11,13 +10,15 @@
     <nav>
         <div class="logo">CoffeeShop</div>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="clientes.html">Clientes</a></li>
-            <li><a href="editar_cliente.html">Editar</a></li>
+            <li><a href="{{url_for('home')}}">Inicio</a></li>
+            <li><a href="{{url_for('clientes')}}">Clientes</a></li>
+            {% if cliente %}
+            <li><a href="{{url_for('editar_cliente', id=cliente)}}">Editar</a></li>
+            {% endif %}
         </ul>
     </nav>
   <h2>Nuevo cliente </h2>
-  <form action="/submit_form" method="POST">
+  <form action="{{url_for('crear_cliente')}}" method="POST">
     <label for="id">ID:</label><br>
     <input type="text" id="id" name="id"><br>
     <label for="nombre">Nombre:</label><br>

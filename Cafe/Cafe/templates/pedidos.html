@@ -2,8 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <link rel="preload" href="C:\Users\jonat\Downloads\CRUD-BDD-master\CRUD-BDD-master\Cafe\Cafe\css\css.css">
-  <link rel="stylesheet" href="C:\Users\jonat\Downloads\CRUD-BDD-master\CRUD-BDD-master\Cafe\Cafe\css\css.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Pedidos  | CoffeeShop </title>
 </head>
@@ -11,9 +10,11 @@
     <nav>
         <div class="logo">CoffeeShop</div>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="nuevo_pedido.html">Nuevo</a></li>
-            <li><a href="editar_pedido.html">Editar</a></li>
+            <li><a href="{{url_for('home')}}">Inicio</a></li>
+            <li><a href="{{url_for('nuevo_pedido')}}">Nuevo</a></li>
+            {% if pedido %}
+            <li><a href="{{ur_for('editar_pedido', id=pedido)}}">Editar</a></li>
+            {% endif %}
         </ul>
     </nav>
   <h2>Lista de Pedidos</h2>
@@ -36,13 +37,13 @@
         <td>{{ pedido.id_producto }}</td>
         <td>{{ pedido.id_cliente }}</td>
         <td>{{ pedido.fecha }}</td>
-        <td>${{ pedido.total }}</td>
+        <td>{{ pedido.total }}</td>
         <td>{{ pedido.estado }}</td>
         <td>{{ pedido.cantidad }}</td>
       </tr>
       {% endfor %}
     </tbody>
   </table>
-  <a href="nuevo_pedido.html">Nuevo Pedido</a>
+  <a href="{{url_for('nuevo_pedido')}}">Nuevo Pedido</a>
 </body>
 </html>

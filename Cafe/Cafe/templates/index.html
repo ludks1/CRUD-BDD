@@ -10,7 +10,6 @@
   <nav>
     <div class="logo">{{ app_name }}</div>
     <ul>
-      <li><a href="{{url_for('home')}}">Inicio</a></li>
       <li><a href="{{url_for('productos')}}">Productos</a></li>
       <li><a href="{{url_for('clientes')}}">Clientes</a></li>
       <li><a href="{{url_for('pedidos')}}">Pedidos</a></li>
@@ -20,7 +19,7 @@
     <div class="about">
       <h2>TU CAFÉ DE TODAS LAS MAÑANAS</h2>
       <p>Empieza tu dia disfrutando uno de los mejores placeres</p>
-      <a href="nuevo_pedido.html"><Button class="BotonOrdena">Ordenar Ahora</Button></a>
+      <a href="{{url_for('nuevo_pedido')}}"><Button class="BotonOrdena">Ordenar Ahora</Button></a>
     </div>
   </div>
 </body>

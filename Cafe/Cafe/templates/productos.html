@@ -2,8 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <link rel="preload" href="C:\Users\jonat\Downloads\CRUD-BDD-master\CRUD-BDD-master\Cafe\Cafe\css\css.css">
-  <link rel="stylesheet" href="C:\Users\jonat\Downloads\CRUD-BDD-master\CRUD-BDD-master\Cafe\Cafe\css\css.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Productos  | CoffeeShop </title>
 </head>
@@ -11,9 +10,11 @@
     <nav>
         <div class="logo">CoffeeShop</div>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="nuevo_producto.html">Nuevo</a></li>
-            <li><a href="editar_producto.html">Editar</a></li>
+            <li><a href="{{url_for('home')}}">Inicio</a></li>
+            <li><a href="{{url_for('nuevo_producto')}}">Nuevo</a></li>
+            {% if producto %}
+            <li><a href="{{url_for('editar_producto', id=producto)}}">Editar</a></li>
+            {% endif %}
         </ul>
     </nav>
   <h2>Lista de Productos</h2>
@@ -39,6 +40,6 @@
       {% endfor %}
     </tbody>
   </table>
-  <a href="nuevo_producto.html">Nuevo Producto</a>
+  <a href="{{url_for('nuevo_producto')}}">Nuevo Producto</a>
 </body>
 </html>
